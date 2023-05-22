@@ -1,0 +1,290 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.10, pytest-7.3.1, pluggy-1.0.0
+rootdir: /home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/marcos74mv
+collected 8 items
+
+test_main.py FFFFFFF.                                                    [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_primes[1-expected_output0] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4d54565900>
+test_input = '1', expected_output = ['2']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+            importlib.import_module(name="main", package="files")
+    
+        for output in expected_output:
+>           assert output in mocked_stdout.getvalue().strip()
+E           AssertionError: assert '2' in ''
+E            +  where '' = <built-in method strip of str object at 0x7f4d55108030>()
+E            +    where <built-in method strip of str object at 0x7f4d55108030> = ''.strip
+E            +      where '' = <built-in method getvalue of _io.StringIO object at 0x7f4d5436dea0>()
+E            +        where <built-in method getvalue of _io.StringIO object at 0x7f4d5436dea0> = <_io.StringIO object at 0x7f4d5436dea0>.getvalue
+
+test_main.py:36: AssertionError
+_______________________ test_primes[2-expected_output1] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4d5435edd0>
+test_input = '2', expected_output = ['2', '3']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+            importlib.import_module(name="main", package="files")
+    
+        for output in expected_output:
+>           assert output in mocked_stdout.getvalue().strip()
+E           AssertionError: assert '2' in ''
+E            +  where '' = <built-in method strip of str object at 0x7f4d55108030>()
+E            +    where <built-in method strip of str object at 0x7f4d55108030> = ''.strip
+E            +      where '' = <built-in method getvalue of _io.StringIO object at 0x7f4d5436e560>()
+E            +        where <built-in method getvalue of _io.StringIO object at 0x7f4d5436e560> = <_io.StringIO object at 0x7f4d5436e560>.getvalue
+
+test_main.py:36: AssertionError
+_______________________ test_primes[3-expected_output2] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4d5435ed40>
+test_input = '3', expected_output = ['2', '3', '5']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+            importlib.import_module(name="main", package="files")
+    
+        for output in expected_output:
+>           assert output in mocked_stdout.getvalue().strip()
+E           AssertionError: assert '2' in ''
+E            +  where '' = <built-in method strip of str object at 0x7f4d55108030>()
+E            +    where <built-in method strip of str object at 0x7f4d55108030> = ''.strip
+E            +      where '' = <built-in method getvalue of _io.StringIO object at 0x7f4d5436ea70>()
+E            +        where <built-in method getvalue of _io.StringIO object at 0x7f4d5436ea70> = <_io.StringIO object at 0x7f4d5436ea70>.getvalue
+
+test_main.py:36: AssertionError
+_______________________ test_primes[4-expected_output3] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4d544e1270>
+test_input = '4', expected_output = ['2', '3', '5', '7']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+            importlib.import_module(name="main", package="files")
+    
+        for output in expected_output:
+>           assert output in mocked_stdout.getvalue().strip()
+E           AssertionError: assert '2' in ''
+E            +  where '' = <built-in method strip of str object at 0x7f4d55108030>()
+E            +    where <built-in method strip of str object at 0x7f4d55108030> = ''.strip
+E            +      where '' = <built-in method getvalue of _io.StringIO object at 0x7f4d5436ed40>()
+E            +        where <built-in method getvalue of _io.StringIO object at 0x7f4d5436ed40> = <_io.StringIO object at 0x7f4d5436ed40>.getvalue
+
+test_main.py:36: AssertionError
+_______________________ test_primes[5-expected_output4] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4d544e0dc0>
+test_input = '5', expected_output = ['2', '3', '5', '7', '11']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+            importlib.import_module(name="main", package="files")
+    
+        for output in expected_output:
+>           assert output in mocked_stdout.getvalue().strip()
+E           AssertionError: assert '2' in ''
+E            +  where '' = <built-in method strip of str object at 0x7f4d55108030>()
+E            +    where <built-in method strip of str object at 0x7f4d55108030> = ''.strip
+E            +      where '' = <built-in method getvalue of _io.StringIO object at 0x7f4d5436e710>()
+E            +        where <built-in method getvalue of _io.StringIO object at 0x7f4d5436e710> = <_io.StringIO object at 0x7f4d5436e710>.getvalue
+
+test_main.py:36: AssertionError
+_______________________ test_primes[6-expected_output5] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4d5435d1b0>
+test_input = '6', expected_output = ['2', '3', '5', '7', '11', '13']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+            importlib.import_module(name="main", package="files")
+    
+        for output in expected_output:
+>           assert output in mocked_stdout.getvalue().strip()
+E           AssertionError: assert '2' in ''
+E            +  where '' = <built-in method strip of str object at 0x7f4d55108030>()
+E            +    where <built-in method strip of str object at 0x7f4d55108030> = ''.strip
+E            +      where '' = <built-in method getvalue of _io.StringIO object at 0x7f4d5436f0a0>()
+E            +        where <built-in method getvalue of _io.StringIO object at 0x7f4d5436f0a0> = <_io.StringIO object at 0x7f4d5436f0a0>.getvalue
+
+test_main.py:36: AssertionError
+_______________________ test_primes[20-expected_output6] _______________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4d5435f5e0>
+test_input = '20', expected_output = ['2', '3', '5', '7', '11', '13', ...]
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+            importlib.import_module(name="main", package="files")
+    
+        for output in expected_output:
+>           assert output in mocked_stdout.getvalue().strip()
+E           AssertionError: assert '2' in ''
+E            +  where '' = <built-in method strip of str object at 0x7f4d55108030>()
+E            +    where <built-in method strip of str object at 0x7f4d55108030> = ''.strip
+E            +      where '' = <built-in method getvalue of _io.StringIO object at 0x7f4d5436f400>()
+E            +        where <built-in method getvalue of _io.StringIO object at 0x7f4d5436f400> = <_io.StringIO object at 0x7f4d5436f400>.getvalue
+
+test_main.py:36: AssertionError
+=========================== short test summary info ============================
+FAILED test_main.py::test_primes[1-expected_output0] - AssertionError: assert...
+FAILED test_main.py::test_primes[2-expected_output1] - AssertionError: assert...
+FAILED test_main.py::test_primes[3-expected_output2] - AssertionError: assert...
+FAILED test_main.py::test_primes[4-expected_output3] - AssertionError: assert...
+FAILED test_main.py::test_primes[5-expected_output4] - AssertionError: assert...
+FAILED test_main.py::test_primes[6-expected_output5] - AssertionError: assert...
+FAILED test_main.py::test_primes[20-expected_output6] - AssertionError: asser...
+========================= 7 failed, 1 passed in 0.12s ==========================
